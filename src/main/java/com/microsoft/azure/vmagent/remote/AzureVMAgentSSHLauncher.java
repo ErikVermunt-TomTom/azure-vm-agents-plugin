@@ -310,7 +310,7 @@ public class AzureVMAgentSSHLauncher extends ComputerLauncher {
                     new Object[]{userName, dnsName, sshPort});
             return session;
         } catch (JSchException e) {
-            LOGGER.log(Level.SEVERE,
+            LOGGER.log(Level.WARNING,
                     String.format("AzureVMAgentSSHLauncher: getRemoteSession: "
                                     + "Got exception while connecting to remote host %s:%s",
                             dnsName, sshPort), e);
@@ -474,7 +474,7 @@ public class AzureVMAgentSSHLauncher extends ComputerLauncher {
                     throw e;
                 }
                 // keep retrying till time out
-                LOGGER.log(Level.SEVERE,
+                LOGGER.log(Level.WARNING,
                         "AzureVMAgentSSHLauncher: connectToSsh: Got exception while connecting to remote host. "
                                 + "Will be trying again after 1 minute ", e);
                 final int sleepInMills = 60 * 1000;
